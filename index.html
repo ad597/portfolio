@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aamna Durrani - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 144, 226, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 144, 226, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .header {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .location {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .location::before {
+            content: "📍";
+            color: #ff4444;
+        }
+        
+        .social-links {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #333;
+        }
+        
+        .name {
+            font-size: 72px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #444444;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .description {
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 10px;
+        }
+        
+        .emoticon {
+            font-size: 16px;
+            color: #444444;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+        
+        .work-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .work-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+            font-size: 20px;
+            top: -2px;
+        }
+        
+        .work-item p {
+            font-size: 16px;
+            color: #444444;
+            line-height: 1.6;
+        }
+        
+        .work-item a {
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .work-item a:hover {
+            color: #357ABD;
+        }
+        
+        .achievement-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .achievement-item::before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+            font-size: 18px;
+            top: -1px;
+        }
+        
+        .achievement-item p {
+            font-size: 16px;
+            color: #444444;
+            line-height: 1.6;
+        }
+        
+        .achievement-item a {
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .achievement-item a:hover {
+            color: #357ABD;
+        }
+        
+        .bigger-picture {
+            margin-bottom: 30px;
+        }
+        
+        .bigger-picture p {
+            font-size: 16px;
+            color: #444444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .seeking {
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 10px;
+        }
+        
+        .opportunities {
+            margin-left: 20px;
+        }
+        
+        .opportunities li {
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 5px;
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .opportunities li::before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+            font-size: 18px;
+            top: -1px;
+        }
+        
+        .connect {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .connect-text {
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .interests {
+            font-size: 16px;
+            color: #444444;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        
+        .connect a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .connect a:hover {
+            color: #357ABD;
+        }
+        
+        .paper-airplane {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        
+        .paper-airplane:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .paper-airplane svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        @keyframes float-plane {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(1deg); }
+            50% { transform: translateY(-2px) rotate(0deg); }
+            75% { transform: translateY(-4px) rotate(-1deg); }
+        }
+        
+        .paper-airplane {
+            animation: float-plane 4s ease-in-out infinite;
+        }
+        
+        .cat-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+            height: 80px;
+        }
+        
+        .cat {
+            font-size: 48px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(2deg); }
+            50% { transform: translateY(-5px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-2deg); }
+        }
+        
+        .cat:hover {
+            animation: bounce 0.5s ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .name {
+                font-size: 48px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .social-links {
+                position: static;
+                margin-top: 20px;
+            }
+            
+            .location {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="location">toronto, ca</div>
+            <div class="social-links">
+                <a href="mailto:aamnadurrani@outlook.com">✉️</a>
+                <a href="https://www.linkedin.com/in/aamna-durrani/" target="_blank">in</a>
+                <a href="https://github.com/ad597" target="_blank">gh</a>
+                <a href="https://x.com/aamnad3" target="_blank">x</a>
+            </div>
+            
+            <h1 class="name">aamna durrani</h1>
+            <p class="tagline">building bridges between data and human stories.</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">currently</h2>
+            <div class="work-item">
+                <p>Working with <a href="https://www.seds.ca/" target="_blank">SEDS Canada</a> and the <a href="https://www.asc-csa.gc.ca/eng/" target="_blank">Canadian Space Agency</a> to develop a national technical satellite network, empowering student-led space initiatives across Canada.</p>
+            </div>
+            <div class="work-item">
+                <p>Building a space for students to share stories, try things out, and navigate what's next — real, unfiltered, and built by those in it.</p>
+            </div>
+            <div class="work-item">
+                <p>Researching <a href="http://hdl.handle.net/11375/31870" target="_blank">traffic data systems</a> and public safety barriers to crash reporting transparency at McMaster University, with a focus on accessibility and ethics.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">cool stuff i've done</h2>
+            <div class="achievement-item">
+                <p>Built <a href="https://www.genaiteach.ca/" target="_blank">generative AI student evaluation tool</a>, featured in <a href="https://library.educause.edu/resources/2024/5/2024-educause-horizon-report-teaching-and-learning-edition" target="_blank">2024 Horizon Teaching Report</a></p>
+            </div>
+            <div class="achievement-item">
+                <p><a href="https://www.linkedin.com/posts/mcmasterscec_the-6th-mcmaster-x-co-operators-problem-solving-activity-7300610049926660096-8_Xo" target="_blank">Co-operators x McMaster Case Competition</a> finalist - pitched insurance solutions to executives</p>
+            </div>
+            <div class="achievement-item">
+                <p>Co-authored <a href="http://www.impactinitiatives.ca/" target="_blank">IMPACT Initiative</a> health education campaign - raised awareness for rare diseases</p>
+            </div>
+            <div class="achievement-item">
+                <p>Hosted <a href="https://www.deltahacks.com/" target="_blank">DeltaHacks XI</a> - orchestrated 48-hour innovation marathon for 500+ participants</p>
+            </div>
+            <div class="achievement-item">
+                <p>Developed LLM functionalities for <a href="https://juniorassociate.com/about/" target="_blank">JAX AI</a> legal bot - advancing ethical AI in legal sector</p>
+            </div>
+            <div class="achievement-item">
+                <p>Drove user engagement and optimized digital health solutions for <a href="https://www.fitsentive.com/" target="_blank">Fitsentive</a> fitness startup</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">the bigger picture</h2>
+            <div class="bigger-picture">
+                <p>I'm passionate about using technology to empower people, designing solutions that are natural, accessible, and impactful. My interests center on the intersection of artificial intelligence, accessibility, and innovation, where I aim to build tools that make technology a seamless part of life.</p>
+            </div>
+            <p class="seeking">I am currently seeking opportunities in:</p>
+            <ul class="opportunities">
+                <li>Data Engineering</li>
+                <li>Growth Strategy</li>
+                <li>Developing scalable digital products</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">let's connect</h2>
+            <p class="connect-text">I'm always open to conversations and collaborations — feel free to reach out!</p>
+            <div class="connect">
+                <a href="mailto:aamnadurrani@outlook.com">here's my email</a>
+            </div>
+            <p class="interests">Outside of work, I enjoy Formula 1, horse riding, and exploring the world of social engineering.</p>
+        </div>
+        
+        <div class="paper-airplane">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M20 50 L50 20 L80 50 L50 35 Z" fill="url(#planeGradient)" opacity="0.9"/>
+                <path d="M50 35 L80 50 L50 80 Z" fill="url(#planeGradient)" opacity="0.7"/>
+                <path d="M20 50 L50 35 L50 80 Z" fill="url(#planeGradient)" opacity="0.8"/>
+                <line x1="50" y1="35" x2="50" y2="65" stroke="#357ABD" stroke-width="1" opacity="0.6"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
